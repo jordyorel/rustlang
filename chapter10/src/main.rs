@@ -12,8 +12,8 @@ fn main() {
 
     // println!("{}", plus_grand::le_plus_grand_nombre(&list));
     // println!("{}", plus_grand::le_plus_grand_char(&liste_de_caracteres));
-    println!("{}", plus_grand::le_plus_grand(&liste_de_caracteres));
-    println!("{}", plus_grand::le_plus_grand(&list));
+    // println!("{}", plus_grand::le_plus_grand(&liste_de_caracteres));
+    // println!("{}", plus_grand::le_plus_grand(&list));
     
 
     //Dans la définition des structures
@@ -51,7 +51,7 @@ fn main() {
 
 
 
-// println!("Un nouveau tweeet: {}", tweet.resumer());
+    // println!("Un nouveau tweeet: {}", tweet.resumer());
 
     let article = trait_types::ArticleDePresse {
         titre: String::from("Les Penguins ont remporté la Coupe Stanley !"),
@@ -70,17 +70,17 @@ fn main() {
         // println!(" Flash infos : {}", element.resumer1());
     }
 
-//Eviter les références pendouillantes avec les durées de vie
+    //Eviter les références pendouillantes avec les durées de vie
 
-// Le code suivant ne compilera pas car x ne vit pas aussi lontemps que r
-// {
-//     let r;
-//     {
-//         let x = 5;
-//         r = &x;
-//     }
-//     println!("r: {}", r);
-// }
+    // Le code suivant ne compilera pas car x ne vit pas aussi lontemps que r
+    // {
+    //     let r;
+    //     {
+    //         let x = 5;
+    //         r = &x;
+    //     }
+    //     println!("r: {}", r);
+    // }
 
 // ceci est la version correct du code précédent
 {
@@ -89,26 +89,40 @@ fn main() {
     let x = 5;
     r = &x;
    
-    println!("r: {}", r);
+    // println!("r: {}", r);
 }
 
 
-//Les durées de vies génériques dans les fonctions
-let x = String::from("Je suis une string");
-let y = "abc";
+    //Les durées de vies génériques dans les fonctions
+    let x = String::from("Je suis une string");
+    let y = "abc";
 
-let plus_long = life_time::la_plus_longue(x.as_str(), y);
-// println!("le plus long est: {}", plus_long);
+    let plus_long = life_time::la_plus_longue(x.as_str(), y);
+    // println!("le plus long est: {}", plus_long);
 
 
-// ceci ne fonctionnera pas car string1 vit plus longtemps que string2
-let string1 = String::from("une longue chaîne est longue");
+    // ceci ne fonctionnera pas car string1 vit plus longtemps que string2
+    let string1 = String::from("une longue chaîne est longue");
 
     {
         let string2 = String::from("xyz");
         let resultat = life_time::la_plus_longue(string1.as_str(), string2.as_str());
-        println!("La chaîne la plus longue est {}", resultat);
+        // println!("La chaîne la plus longue est {}", resultat);
     }
+
+
+    let plus_long1 = life_time::la_plus_longue1(x.as_str(), y);
+
+    // println!("{}",plus_long1);
+
+    //L'ajout des durées de vies dans les définitions des structures
+    let roman = String::from("Ceci est une extrait du livre de Cheuck Anta Diop");
+    let premiere_phrase = roman.split('.').next().expect("Impossible de trouver '.' ");
+    let i = life_time::ExtraitImportant {
+        partie: premiere_phrase
+    };
+
+    println!("{:#?}",i );
 
 
 
