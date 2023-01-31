@@ -4,6 +4,7 @@ pub fn add(left: usize, right: usize) -> usize {
 
 #[cfg(test)]
 mod tests {
+
     use super::*;
 
     // #[test]
@@ -64,14 +65,44 @@ mod tests {
 
 
 
+    // #[test]
+    // fn it_works()-> Result<(), String>{
+    //     if 2 + 2 == 4 {
+    //         Ok(())
+    //     }else {
+    //         Err(String::from("deux et deux ne vallent pas quatre"))
+    //     }
+    // }
+
+        // #[test]
+        // fn ce_test_reussi(){
+        //     let valeur = affiche_et_retourne_10(4);
+        //     assert_eq!(10, valeur);
+        // }
+
+        // #[test]
+        // fn ce_test_echoue(){
+        //     let valeur = affiche_et_retourne_10(8);
+        //     assert_eq!(5, valeur);
+        // }
+
+
+
     #[test]
-    fn it_works()-> Result<(), String>{
-        if 2 + 2 == 4 {
-            Ok(())
-        }else {
-            Err(String::from("deux et deux ne vallent pas quatre"))
-        }
+    fn ajouter_deux_a_2() {
+        assert_eq!(4, ajouter_deux(2));
     }
+
+     #[test]
+    fn ajouter_deux_a_3() {
+        assert_eq!(5, ajouter_deux(3));
+    }
+    
+     #[test]
+    fn cent() {
+        assert_eq!(102, ajouter_deux(100));
+    }
+
 
 }
 
@@ -93,31 +124,36 @@ mod tests {
 
 // Tester l'égalité avec les macros assert_eq! et assert_ne!
 
-    // pub fn ajouter_deux(a: i32) -> i32 {
-    //     a + 2
-    // }
-
 //Ajouter des messages d'échec personnalisés
 
+
 // pub fn acceuil(nom: &str) -> String {
-//     // format!("Salut {}", nom)
-//     String::from("salut") //le test ne fonctionnera pas
-// }
+    //     // format!("Salut {}", nom)
+    //     String::from("salut") //le test ne fonctionnera pas
+    // }
+    
+    
+    //Vérifier le fonctionnement des paniques avec should_panic
 
-
-//Vérifier le fonctionnement des paniques avec should_panic
-
-pub struct Supposition {
-    valeur: i32,
-}
-
-impl Supposition {
-    pub fn new(valeur: i32) -> Supposition {
-        if valeur < 1 || valeur > 100 {
-            panic!("La valeur doit être comprise entre 1 et 100 vous avez entré '{}' ", valeur);
-        }
-        Supposition { valeur }
+    // pub struct Supposition {
+        //     valeur: i32,
+        // }
+        
+        // impl Supposition {
+            //     pub fn new(valeur: i32) -> Supposition {
+                //         if valeur < 1 || valeur > 100 {
+                    //             panic!("La valeur doit être comprise entre 1 et 100 vous avez entré '{}' ", valeur);
+                    //         }
+                    //         Supposition { valeur }
+                    //     }
+                    // }
+                    
+                    
+    fn affiche_et_retourne_10(a: i32) -> i32 {
+        println!("J'ai obtenu la valeur {}", a);
+            10
     }
-}
-
-
+                    
+    pub fn ajouter_deux(a: i32) -> i32 {
+        a + 2
+    }
